@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Shopping Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4895ef;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4cc9f0;
+      --danger: #f72585;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .about-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-header h1::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .about-header p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .mission-section {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-section:hover {
+      transform: translateY(-5px);
+    }
+
+    .mission-section h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .mission-section h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -8px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    .features-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card.buyer {
+      border-top: 4px solid var(--primary);
+    }
+
+    .feature-card.seller {
+      border-top: 4px solid var(--success);
+    }
+
+    .feature-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .feature-card ul {
+      list-style: none;
+    }
+
+    .feature-card li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .feature-card li::before {
+      content: '\f00c';
+      font-family: 'boxicons';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .feature-card.buyer li::before {
+      color: var(--primary);
+    }
+
+    .feature-card.seller li::before {
+      color: var(--success);
+    }
+
+    .story-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 15px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .story-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .story-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-section p {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .contact-section {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      background: rgba(67, 97, 238, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: rgba(67, 97, 238, 0.2);
+      transform: scale(1.05);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .contact-text h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-text p {
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .about-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .mission-section,
+      .feature-card,
+      .story-section,
+      .contact-section {
+        padding: 2rem;
+      }
+      
+      .features-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="about-header">
+      <h1>About Our Platform</h1>
+      <p>Connecting buyers and sellers in a seamless, secure marketplace experience</p>
+    </header>
+
+    <section class="mission-section">
+      <h2>Our Mission</h2>
+      <p>We're dedicated to revolutionizing e-commerce by creating a platform that equally benefits both buyers and sellers. Our technology provides a frictionless shopping experience while giving sellers powerful tools to grow their business.</p>
+    </section>
+
+    <div class="features-container">
+      <div class="feature-card buyer">
+        <h3>For Buyers</h3>
+        <ul>
+          <li>Discover millions of quality products</li>
+          <li>Secure checkout with multiple payment options</li>
+          <li>Real-time order tracking</li>
+          <li>24/7 customer support</li>
+          <li>Personalized recommendations</li>
+          <li>Easy returns & refunds</li>
+        </ul>
+      </div>
+
+      <div class="feature-card seller">
+        <h3>For Sellers</h3>
+        <ul>
+          <li>Easy store setup in minutes</li>
+          <li>Powerful inventory management</li>
+          <li>Detailed analytics dashboard</li>
+          <li>Secure payment processing</li>
+          <li>Marketing & promotion tools</li>
+          <li>Seller protection policies</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="story-section">
+      <h2>Our Story</h2>
+      <p>Founded in 2025 by a team of e-commerce veterans, our platform was born from a simple idea: to create a marketplace that truly serves both sides of the transaction. What started as a small startup has grown into a trusted platform serving millions of users worldwide, but we've never lost sight of our core values: fairness, transparency, and exceptional service.</p>
+    </section>
+
+    <section class="contact-section">
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class='bx bx-envelope contact-icon'></i>
+          <div class="contact-text">
+            <h3>Email Us</h3>
+            <p>support@homehive.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class='bx bx-phone contact-icon'></i>
+          <div class="contact-text">
+            <h3>Call Us</h3>
+            <p>+1 (555) 123-4567</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class='bx bx-time contact-icon'></i>
+          <div class="contact-text">
+            <h3>Support Hours</h3>
+            <p>Mon-Fri: 9AM-5PM EST</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

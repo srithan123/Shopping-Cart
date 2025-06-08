@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Shopping Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4895ef;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4cc9f0;
+      --danger: #f72585;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .contact-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-header h1::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .contact-header p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .contact-info:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .contact-info h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -8px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-top: 5px;
+    }
+
+    .info-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .info-content p {
+      color: #666;
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .contact-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .contact-form h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -8px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn i {
+      font-size: 1.2rem;
+    }
+
+    .map-container {
+      margin-top: 3rem;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      height: 400px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(67, 97, 238, 0.1);
+      color: var(--primary);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info,
+      .contact-form {
+        padding: 2rem;
+      }
+      
+      .map-container {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="contact-header">
+      <h1>Contact Us</h1>
+      <p>Have questions or feedback? We'd love to hear from you! Reach out through any of the channels below.</p>
+    </header>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        
+        <div class="info-item">
+          <i class='bx bx-map info-icon'></i>
+          <div class="info-content">
+            <h3>Our Location</h3>
+            <p>HITEC City
+            Madhapur,
+            Hyderabad,
+            Telangana - 500081,
+            India</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <i class='bx bx-envelope info-icon'></i>
+          <div class="info-content">
+            <h3>Email Us</h3>
+            <p>support@homehive.com<br>sales@homehive.com</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <i class='bx bx-phone info-icon'></i>
+          <div class="info-content">
+            <h3>Call Us</h3>
+            <p>+1 (555) 123-4567 (Support)<br>+1 (555) 987-6543 (Sales)</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <i class='bx bx-time info-icon'></i>
+          <div class="info-content">
+            <h3>Working Hours</h3>
+            <p>Monday - Friday: 9AM - 6PM EST<br>Saturday: 10AM - 4PM EST</p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" class="social-link"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control" placeholder="How can we help?">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class='bx bx-paper-plane'></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.2122546903697!2d78.36862507522201!3d17.44900010102719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9333e1e0c715%3A0x87fd114ebe72887e!2sHigh%20tech%20City!5e1!3m2!1sen!2sin!4v1749391711551!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+  </div>
+</body>
+</html>
